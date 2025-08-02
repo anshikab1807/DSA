@@ -13,10 +13,4 @@ dp[j] = dp[j] || dp[j - num];
 }
 return dp[target];
 }
-public static void main(String[] args) {
-int[] arr1 = {15, 5, 20, 10, 35, 15, 10};
-System.out.println(canPartition(arr1)); // true
-int[] arr2 = {15, 5, 20, 10, 35};
-System.out.println(canPartition(arr2)); // false
-}
 }
