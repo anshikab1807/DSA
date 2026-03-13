@@ -32,15 +32,14 @@ class Solution {
                 return root.left;
             }
             else{
-                TreeNode IS=findInorderSuccessor(root.right);
+                TreeNode IS=sol(root.right);
                 root.val=IS.val;
                 root.right=deleteNode(root.right,IS.val);
             }
         }
         return root;
     }
-
-    public TreeNode findInorderSuccessor(TreeNode root) {
+    public TreeNode sol(TreeNode root) {
         while(root.left !=null) {
             root=root.left;
         }
