@@ -6,14 +6,11 @@ class Solution {
             int mid=start+(end-start)/2;
             if(nums[mid]<nums[end]){
                 end=mid;
-            } 
-            else if(nums[mid]==nums[end]) {
+            }else if(nums[mid]==nums[end]){
                 end--;
-            } 
-            else{
+            }else{
                 start=mid+1;
             }
-        }
-        return nums[start];
+        } return nums[start];
     }
 }
