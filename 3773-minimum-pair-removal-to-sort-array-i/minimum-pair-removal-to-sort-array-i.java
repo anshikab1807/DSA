@@ -1,5 +1,5 @@
 class Solution {
-    private boolean isSorted(int[] nums, int n) {
+    private boolean sol(int[] nums, int n) {
         for(int i=1;i<n;i++) {
             if(nums[i]<nums[i-1]) return false;
         }
@@ -7,7 +7,7 @@ class Solution {
     }
     public int minimumPairRemoval(int[] nums) {
         int ans=0,n=nums.length;
-        while(!isSorted(nums, n)) {
+        while(!sol(nums, n)) {
             ans += 1;
             int min=Integer.MAX_VALUE,pos = -1;
             for(int i=1;i<n;i++){
