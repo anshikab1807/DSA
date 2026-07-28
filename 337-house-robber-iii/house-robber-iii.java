@@ -1,43 +1,30 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-// class Solution{
+// class Solution {
 //     public int rob(TreeNode root) {
-//         if (root==null) return 0;
-//         int ans=0;
-//         if(root.left!=null) {
-//         ans+=rob(root.left.left)+rob(root.left.right);
+//         return sol(root,true);
+//     }
+//     public int sol(TreeNode root,boolean flag) {
+//         if(root==null)
+//             return 0;
+//         if(flag){
+//             int inc=root.val+sol(root.left,false)+sol(root.right,false);
+//             int ex=sol(root.left,true)+sol(root.right,true);
+//             return Math.max(inc,ex);
 //         }
-//         if(root.right!=null){
-//             ans+=rob(root.right.left)+rob(root.right.right);
-//         }
-//         return Math.max(ans+root.val,rob(root.left)+rob(root.right));
+//         return sol(root.left,true)+sol(root.right,true);
 //     }
 // }
 class Solution {
     public int rob(TreeNode root) {
-        int dp[]=robHouse(root);
+        int dp[]=sol(root);
         return Math.max(dp[0],dp[1]);
     }
-    public int[] robHouse(TreeNode root){
+    public int[] sol(TreeNode root){
         if(root==null){
             return new int[2];
         } 
-        int left[]=robHouse(root.left);
-        int right[]=robHouse(root.right);
-        int dp[] = new int[2];
+        int left[]=sol(root.left);
+        int right[]=sol(root.right);
+        int dp[]=new int[2];
         dp[0]=Math.max(left[0],left[1])+Math.max(right[0],right[1]);
         dp[1]=root.val+left[0]+right[0];
         return dp;
